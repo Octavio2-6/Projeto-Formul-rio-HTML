@@ -1,0 +1,51 @@
+
+body {
+    font-size:larger;
+    font-family:'Times New Roman', Times, serif;
+    text-align:justify;
+    text-indent:5px;
+}
+
+.titulo {
+    border-style:double;
+    border-color:#a52a2a;
+    background-color:#ff0000;
+    text-align:center;
+    font-size:xx-large;
+    font-family:'Times New Roman', Times, serif;
+    color:#ffffff;
+}
+
+form > #submeter {
+    text-align:right;
+}
+
+#navbarNavAltMarkup {
+    background-color:#c01111;
+    border-color:#a52a2a;
+    border-style:solid;
+    font-family:'Times New Roman', Times, serif;
+    font-size:large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.oculto {
+    display:none;
+}
+

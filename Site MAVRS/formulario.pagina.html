@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>agendamento de visita MAVRS</title>
+        <link href="layout_css/layout_formulario.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-danger">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="pagina_principal.html"><p class="text-white">Início</p></a>
+                        <a class="nav-link" href="datas/datasVisita.html"><p class="text-white">Agendamentos</p></a>
+                    </div>
+            </nav>
+            <h1 class="titulo">Agendamento MAVRS</h1>
+            <p>Olá! Esse é a aba onde realizaremos o agendamento da visita da sua escola. Para prosseguir com o
+            agendamento, preencha os seguintes dados que são necessários para compreendermos melhor o objetivo
+            da visita.</p>
+        </header>
+        <form action="/php_level/submit_form.php" id="formulario_principal" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <h2>Dados da Escola:</h2>
+                <label for="nomeEscola[]">Nome da escola</label>
+                <input type="text" id="nomeEscola[]" name="nomeEscola" maxlength="300" required>
+                <label for="cidadeEscola[]">Cidade</label>
+                <input type="text" id="cidadeEscola[]" name="cidadeEscola" required>
+                <label for="estadoEscola[]">Estado</label>
+                <input type="text" id="estadoEscola[]" name="estadoEscola" required><br><br>
+                <label for="emailEscola[]">Email</label>
+                <input type="email" id="emailEscola[]" name="emailEscola" required>
+                <label for="foneEscola[]">Telefone</label>
+                <input type="tel" id="foneEscola[]" name="foneEscola"><br><br>
+                <label for="nomeProfessor[]">Nome do/a professor/a responsável</label>
+                <input type="text" id="nomeProfessor[]" name="nomeProfessor" required><br><br>
+                
+                <h2>Visita:</h2>
+                <label for="diaVisita[]">Dia da visita</label>
+                <input type="date" id="diaVisita[]" name="diaVisita" required>
+                <label for="horarioVisita[]">Horário da visita</label>
+                <input type="time" id="horarioVisita[]" name="horarioVisita" required>
+                <label for="numeroTurmas[]">Quantidade de turmas</label>
+                <input type="number" id="numeroTurmas[]" name="numeroTurmas" required><br><br>
+                <label for="escolaridadeTurma">Nível da turma</label><br><br>
+                <label for="ensinoInfantil[]">Educação Infantil</label>
+                <input type="checkbox" id="ensinoInfantil[]" name="ensinoInfantil"><br>
+                <label for="ensinoFundamentalI[]">Ensino Fundamental I</label>
+                <input type="checkbox" id="ensinoFundamentalI[]" name="ensinoFundamentalI"><br>
+                <label for="ensinoFundamentalII[]">Ensino Fundamental II</label>
+                <input type="checkbox" id="ensinoFundamentalII[]" name="ensinoFundamentalII"><br>
+                <label for="ensinoMedio[]">Ensino Médio</label>
+                <input type="checkbox" id="ensinoMedio[]" name="ensinoMedio"><br>
+                <label for="eja[]">EJA</label>
+                <input type="checkbox" id="eja[]" name="eja"><br>
+                <label for="ensinoSuperior[]">Ensino Superior</label>
+                <input type="checkbox" id="ensinoSuperior[]" name="ensinoSuperior"><br><br>
+                <label for="perguntaOficina[]">Visita com oficina? Qual?</label>
+                <select id="perguntaOficina" name="perguntaOficina">
+                    <option value="semOficina">Sem oficina</option>
+                    <option value="oficina1">O Ser Humano no Gesto de Ruth</option>
+                    <option value="oficina2">Isocidades</option>
+                    <option value="oficina3">Tintas Naturais</option>
+                    <option value="oficina4">Ruthinha e Seus Amigos</option>
+                    <option value="oficina5">Colagraff</option>
+                </select><br><br>
+
+                <h2>Informações dos alunos:</h2>
+                <label for="numeroAlunos[]">Quantidade de alunos</label>
+                <input type="number" id="numeroAlunos[]" name="numeroAlunos" required><br><br>
+                <label for="alunoDificuldade[]">Há algum aluno com alguma dificuldade específica?</label>
+                <select id="alunoDificuldade[]" name='alunoDificuldade'>
+                    <option value="escolher">Escolher opção</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select><br><br>
+                <div id="alunosDificuldades" class="oculto">
+                    <div id="listaAluno">
+                        <div class="novoBloco">
+                            <h3>Dados do aluno:</h3>
+                            <label for="cidAluno[]">Digite o cid do aluno</label>
+                            <input type="text" id="cidAluno[]" name="cidAluno" required>
+                            <label for="descricaoCid[]">Descricao do cid</label>
+                            <input type="text" id="descricaoCid[]" name="descricaoCid"><br><br>
+                            <label for="nomeAluno[]">Nome do aluno/a</label>
+                            <input type="text" id="nomeAluno[]" name="nomeAluno" required>
+                            <label for="serieAluno[]">Série do aluno</label>
+                            <input type="text" id="serieAluno[]" name="serieAluno" required><br><br>
+                        </div>
+                     </div>
+                     <button type="button" id="novoAluno">Adicionar outro aluno</button>
+                </div>
+
+                <h2>Informações adicionais</h2>
+                <label for="addinformacoes[]">Gostaria de acrescentar mais informações?</label>
+                <input type="text" id="addinformacoes[]" name="addinformacoes"><br><br>
+                <label for="submeter">Enviar respostas</label>
+                <input type="submit" id="submeter" value="submeter">
+            </fieldset>
+        </form>
+        
+
+         <script>
+            document.getElementById('alunoDificuldade[]').addEventListener('change', function() {
+                
+                const valor = this.value;
+                const formularioespecial = document.getElementById('alunosDificuldades');
+
+                if (valor === 'sim') {
+                    formularioespecial.classList.remove('oculto');
+                } else {
+                    formularioespecial.classList.add('oculto');
+                }
+            });
+            
+            document.getElementById('novoAluno').addEventListener('click', function() {
+
+                const lista = document.getElementById('listaAluno');
+                const bloco1 = lista.querySelector('.novoBloco');
+                const novobloco = bloco1.cloneNode(true);
+
+                novobloco.querySelectorAll('input').forEach(input => {
+                    input.value = '';  
+                });
+
+                lista.appendChild(novobloco);
+            });
+        </script>
+
+    
+    </body>
+</html>
